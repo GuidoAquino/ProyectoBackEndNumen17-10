@@ -30,5 +30,6 @@ indexController.putEscuderia)
 
 
 router.delete('/borrar/:id/' ,indexController.deleteEscuderia)
+router.get('/circuitos', indexController.circuitos)
 
 module.exports = router   

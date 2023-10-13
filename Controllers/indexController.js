@@ -1,4 +1,5 @@
 const {Escuderias} = require('../models/escuderias')
+const axios = require('axios')
 
 const indexController = {
     async getEscuderia (req,res){
@@ -42,6 +43,16 @@ const indexController = {
         escuderia
         
       })
+    },
+
+    async circuitos (req,res){
+      try {
+        const {data} = await axios.get('https://ergast.com/api/f1/circuits.json')
+        res.json(data)
+      } catch (error) {
+        res.status(404).json({data: error.response.circuitos})
+        
+      }
     }
 
 
